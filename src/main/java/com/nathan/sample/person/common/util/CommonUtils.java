@@ -13,6 +13,11 @@ import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
+/**
+ * Common utitly function 
+ * @author saravanan renganathan
+ *
+ */
 
 @Component
 public final class CommonUtils {
