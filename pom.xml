@@ -25,15 +25,9 @@
         <com.h2database.version>1.2.147</com.h2database.version>
         <authfilter.version>0.0.10</authfilter.version>
         <aspectj.version>1.7.1</aspectj.version>
-        <globalauth.client.filter.version>0.0.2-SNAPSHOT</globalauth.client.filter.version>
-
-        <h2.jar.path>
-            ${settings.localRepository}/com/h2database/h2/${com.h2database.version}/h2-${com.h2database.version}.jar
-        </h2.jar.path>
-        <oracle.jar.path>${project.basedir}/src/main/webapp/WEB-INF/lib/ojdbc6.jar</oracle.jar.path>
-        <dev.datasource.type>DBCP</dev.datasource.type>
-        <dev.properties.password>password</dev.properties.password>
-        <artifact>SignUp</artifact>
+       
+ 
+      
        
     </properties>
 
