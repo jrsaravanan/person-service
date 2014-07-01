@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://dozer.sourceforge.net
+          http://dozer.sourceforge.net/schema/beanmapping.xsd">
+          
+  <mapping> 
+    <class-a>com.nathan.sample.app.person.domain.entity.PersonEntity</class-a>
+    <class-b>sample.nathan.com.v1.Person</class-b>   
+  </mapping>  
+  
+  
+    <mapping> 
+    <class-a>com.nathan.sample.app.person.domain.entity.DepartmentEntity</class-a>
+    <class-b>sample.nathan.com.v1.Department</class-b>   
+  </mapping>  
+</mappings> 

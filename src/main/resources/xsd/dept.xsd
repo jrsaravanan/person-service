@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="schema.xsl"?>
+
+<!--
+
+Copyright (C) 2013  Saravanan Renganathan
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+-->
+
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:dept="http://com.nathan.sample/v1.0"
+     elementFormDefault="qualified" attributeFormDefault="unqualified"
+    targetNamespace="http://com.nathan.sample/v1.0">
+
+    <include schemaLocation="id.xsd" />
+ 
+ <xsd:element name="department" type="dept:Department" />
+ <xsd:element name="departmentList" type="dept:DepartmentList"/>
+
+  
+    
+     <xsd:complexType name="DepartmentList">
+                <xsd:sequence>
+                    <xsd:element name="department" type="dept:Department" minOccurs="1" maxOccurs="unbounded"/>
+                </xsd:sequence>
+    </xsd:complexType>
+    
+    
+     
+     <xsd:complexType name="Department">
+     	<xsd:complexContent>
+            <xsd:extension base="dept:Id" >
+		     	<xsd:annotation>
+		     		<xsd:documentation>
+		     			Sample department object has id and name
+		     		</xsd:documentation>
+		     	</xsd:annotation>
+		    	 <xsd:sequence>
+			        <xsd:element name="name" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			        <xsd:element name="description" type="xsd:string" minOccurs="1" maxOccurs="1"/>	       
+			    </xsd:sequence>
+			 </xsd:extension>
+			</xsd:complexContent>
+    </xsd:complexType>
+    
+  
+  
+</schema>

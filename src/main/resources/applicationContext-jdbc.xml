@@ -5,11 +5,12 @@
     
     <tx:annotation-driven transaction-manager="transactionManager" />
     
+    <!-- change    -->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <property name="driverClass" value="${jdbc.driverClass}" />
         <property name="jdbcUrl" value="${jdbc.url}" />
         <property name="user" value="${jdbc.user}" />
-        <property name="password" value="${jdbc.pass}" />
+        <property name="password" value="${jdbc.pass}"/>
         <property name="minPoolSize" value="1" />
         <property name="maxPoolSize" value="16" />
     </bean>

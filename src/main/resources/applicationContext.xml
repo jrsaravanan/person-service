@@ -13,22 +13,42 @@
 	http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
 
-	<!-- 	<context:property-placeholder location="classpath:person.properties" ignore-resource-not-found="true"/>  -->
-	
-	<!-- Load application properties -->
-    
-	<import resource="applicationContext-properties.xml"/>
-	<import resource="jaxb-applicationContext.xml"/>
-	<import resource="applicationContext-jdbc.xml"/>
-	
-	
-
+<!--   	<import resource="jaxb-applicationContext.xml"/> -->
+  
     <!-- Spring Component Scan -->
     <context:component-scan base-package="com.nathan.sample"/>
     <context:spring-configured/>
     <context:annotation-config/>
     <aop:aspectj-autoproxy />
 
+ 
+<context:property-placeholder location="classpath:person.properties" ignore-resource-not-found="true"/> 
+<import resource="applicationContext-jdbc.xml"/>
+<import resource="applicationContext-jaxb.xml"/>
+ 
    
+    
+     <bean name="mapper" class="org.dozer.DozerBeanMapper">
+        <property name="mappingFiles">
+        	<list>
+        		<value>mappings.xml</value>
+        	</list>
+        </property>
+     </bean>
+     
+     
+
+        <bean class="com.wordnik.swagger.jaxrs.listing.ApiListingResourceJSON" />
+        <bean class="com.wordnik.swagger.jaxrs.listing.ApiDeclarationProvider" scope="singleton" />
+        <bean class="com.wordnik.swagger.jaxrs.listing.ResourceListingProvider" scope="singleton" />
+        
+        <bean class="com.nathan.sample.resource.api.SwaggerConfigurer" init-method="init">
+                <property name="apiVersion" value="${swagger.apiVersion}" />
+                <property name="baseBath" value="${swagger.baseBath}" />
+                <property name="resourcePackage" value="${swagger.resourcePackage}" />
+        </bean>
+     
 
 </beans>
+
+
