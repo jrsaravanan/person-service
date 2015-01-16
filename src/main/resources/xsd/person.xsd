@@ -52,7 +52,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 					<xsd:element name="lastName" type="xsd:string" minOccurs="1" maxOccurs="1" />
 					<xsd:element name="description" type="xsd:string"/>
 					<xsd:element name="department" type="person:Department"/>
-					<xsd:element name="addresses" type="person:AddressList" 	minOccurs="1"  maxOccurs="1"/>
+<!-- 					<xsd:element name="addresses" type="person:AddressList" 	minOccurs="1"  maxOccurs="1"/> -->
 				</xsd:sequence>
 				<xsd:attribute name="previous" type="xsd:string" use="optional"/>
 				<xsd:attribute name="next" type="xsd:string" use="optional"/> 

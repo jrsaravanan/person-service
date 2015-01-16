@@ -9,8 +9,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriBuilder;
 import javax.ws.rs.core.Response.ResponseBuilder;
+import javax.ws.rs.core.UriBuilder;
 import javax.ws.rs.core.UriInfo;
 import javax.xml.bind.JAXBElement;
 
@@ -22,9 +22,9 @@ import org.springframework.stereotype.Component;
 import sample.nathan.com.v1.Department;
 import sample.nathan.com.v1.DepartmentList;
 import sample.nathan.com.v1.ObjectFactory;
-import sample.nathan.com.v1.Person;
 
 import com.nathan.sample.service.DepartmentService;
+
 
 /**
  * @author Saravanan Renganathan

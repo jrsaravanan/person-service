@@ -37,7 +37,7 @@ import com.sun.jersey.api.NotFoundException;
  * @author Saravanan
  *
  */
-@Service
+@Service("PersonServiceDAO")
 @Transactional
 public class PersonServiceImpl implements PersonService {
 	
@@ -48,8 +48,8 @@ public class PersonServiceImpl implements PersonService {
 	@Autowired
 	private DozerBeanMapper mapper;
 	
-	  @Context
-	   private UriInfo uriInfo;
+	@Context
+	private UriInfo uriInfo;
 
 	private GenericHibernateRepository<DepartmentEntity, Long> departmentDAO;
 

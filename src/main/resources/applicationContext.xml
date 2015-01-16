@@ -22,7 +22,13 @@
     <aop:aspectj-autoproxy />
 
  
-<context:property-placeholder location="classpath:person.properties" ignore-resource-not-found="true"/> 
+     <bean id="applicationProperties"
+          class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="location"
+                  value="#{T(com.nathan.sample.person.common.util.CommonUtils).getConfigFile('person.properties')}"/>
+    </bean>
+    
+<!-- <context:property-placeholder location="classpath:person.properties" ignore-resource-not-found="true"/>  -->
 <import resource="applicationContext-jdbc.xml"/>
 <import resource="applicationContext-jaxb.xml"/>
  

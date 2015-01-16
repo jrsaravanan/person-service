@@ -19,6 +19,7 @@ import javax.xml.bind.JAXBElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import sample.nathan.com.v1.ObjectFactory;
@@ -31,13 +32,14 @@ import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiResponse;
 import com.wordnik.swagger.annotations.ApiResponses;
 
-@Path("v1/person")
+@Path("v1/persontest")
 @Component
-@Api(value = "/person", description = "Person Details Resource / Person Operations")
+@Api(value = "/persontest", description = "Person Details Resource / Person Operations")
 public class PersonResource {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(PersonResource.class);
     @Autowired
+    @Qualifier("PersonServiceDAO")
 	private PersonService personService;
     
     @Context
@@ -87,23 +89,25 @@ public class PersonResource {
 		
     }
 	
-    @POST
-    @Produces(value = {MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-	@Consumes(value = {MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    
     @ApiOperation(value = "Save Person Details", notes = "Save persons", response = String.class)
     @ApiResponses(value = {
       @ApiResponse(code = 404, message = "Person Detail not found") 
     })
+    @POST
+    @Produces(value = {MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+	@Consumes(value = {MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public Response savePerson(Person person) {
 		
-		ResponseBuilder response = Response.ok();
-		ObjectFactory factory = new ObjectFactory();
-		
 		 person = personService.savePerson(person);
+		 ResponseBuilder response = Response.ok();
+		 ObjectFactory factory = new ObjectFactory();
 		 JAXBElement<Person> referenceObject = factory.createPerson(person);
-		UriBuilder uriBuilder = uriInfo.getAbsolutePathBuilder();
-		uriBuilder.path(String.valueOf(person.getId()));
-		return response.entity(referenceObject)
+		 
+		 UriBuilder uriBuilder = uriInfo.getAbsolutePathBuilder();
+		 uriBuilder.path(String.valueOf(person.getId()));
+		 
+		 return response.entity(referenceObject)
 				.contentLocation(uriBuilder.build())
 				.build();
 		
@@ -123,7 +127,7 @@ public class PersonResource {
     }
 	
 	
-	@Path("/person")
+	@Path("/persontest")
     @PUT
     @Produces(value = {MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
 	@Consumes(value = {MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
