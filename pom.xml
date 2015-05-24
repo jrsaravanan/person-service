@@ -291,6 +291,12 @@
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-xc</artifactId>
             <version>1.9.9</version>
+            <exclusions>
+            	<exclusion>
+            		<groupId>org.codehaus.jackson</groupId>
+            		<artifactId>jackson-jaxrs</artifactId>
+            	</exclusion>
+            </exclusions>
         </dependency>
         
 
@@ -378,6 +384,24 @@
                        </execution>
                    </executions>
                </plugin>
+
+
+				<plugin>
+					<groupId>org.eclipse.jetty</groupId>
+					<artifactId>jetty-maven-plugin</artifactId>
+					<version>9.3.0.M2</version>
+					<configuration>
+						 <stopPort>8080</stopPort>
+						 <stopWait>10</stopWait>
+						  <stopKey>person</stopKey>
+						<scanIntervalSeconds>10</scanIntervalSeconds>
+						
+						<webApp>
+							<contextPath>/person</contextPath>
+						</webApp>
+					</configuration>
+				</plugin>
+      
   	
   	</plugins>
   </build>
